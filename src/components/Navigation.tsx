@@ -1,34 +1,83 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('')
+  const pathname = usePathname()
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      setActiveSection(window.location.hash)
+    }
+
+    // Set initial hash
+    setActiveSection(window.location.hash)
+
+    // Listen for hash changes
+    window.addEventListener('hashchange', handleHashChange)
+    
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange)
+    }
+  }, [])
+
+  const isTeamActive = pathname === '/' && activeSection === '#team'
+  const isHomeActive = pathname === '/' && (activeSection === '' || activeSection === '#')
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <div className="flex-shrink-0">
-            <Link href="/" className="text-lg font-normal text-gray-900">
-              Position Ventures
-            </Link>
-          </div>
-          
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="flex items-center space-x-12">
-              <Link href="/" className="text-gray-500 hover:text-position-red text-sm font-normal transition-colors">
+              <Link 
+                href="/" 
+                onClick={() => setActiveSection('')}
+                className={`text-sm font-normal transition-colors ${
+                  isHomeActive
+                    ? 'text-position-red' 
+                    : 'text-gray-500 hover:text-position-red'
+                }`}
+              >
                 Home
               </Link>
-              <Link href="#team" className="text-gray-500 hover:text-position-red text-sm font-normal transition-colors">
+              <Link 
+                href="/#team" 
+                onClick={() => setActiveSection('#team')}
+                className={`text-sm font-normal transition-colors ${
+                  isTeamActive
+                    ? 'text-position-red' 
+                    : 'text-gray-500 hover:text-position-red'
+                }`}
+              >
                 Team
               </Link>
-              <Link href="/companies" className="text-gray-500 hover:text-position-red text-sm font-normal transition-colors">
+              <Link 
+                href="/companies" 
+                className={`text-sm font-normal transition-colors ${
+                  pathname === '/companies' 
+                    ? 'text-position-red' 
+                    : 'text-gray-500 hover:text-position-red'
+                }`}
+              >
                 Companies
               </Link>
             </div>
+          </div>
+          
+          <div className="flex-shrink-0">
+            <Link href="/" className="flex items-center">
+              <img 
+                src="/logo-lockup.png"
+                alt="Position Ventures"
+                className="h-8"
+              />
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -56,13 +105,36 @@ export default function Navigation() {
       {isOpen && (
         <div className="md:hidden">
           <div className="px-6 pt-2 pb-6 space-y-4 bg-white border-t border-gray-100">
-            <Link href="/" className="text-gray-500 hover:text-gray-900 block text-sm font-normal transition-colors">
+            <Link 
+              href="/" 
+              onClick={() => setActiveSection('')}
+              className={`block text-sm font-normal transition-colors ${
+                isHomeActive
+                  ? 'text-position-red' 
+                  : 'text-gray-500 hover:text-gray-900'
+              }`}
+            >
               Home
             </Link>
-            <Link href="#team" className="text-gray-500 hover:text-gray-900 block text-sm font-normal transition-colors">
+            <Link 
+              href="/#team" 
+              onClick={() => setActiveSection('#team')}
+              className={`block text-sm font-normal transition-colors ${
+                isTeamActive
+                  ? 'text-position-red' 
+                  : 'text-gray-500 hover:text-gray-900'
+              }`}
+            >
               Team
             </Link>
-            <Link href="/companies" className="text-gray-500 hover:text-gray-900 block text-sm font-normal transition-colors">
+            <Link 
+              href="/companies" 
+              className={`block text-sm font-normal transition-colors ${
+                pathname === '/companies' 
+                  ? 'text-position-red' 
+                  : 'text-gray-500 hover:text-gray-900'
+              }`}
+            >
               Companies
             </Link>
           </div>

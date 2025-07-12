@@ -2,11 +2,24 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Position Ventures - Your Story is Your Strategy',
-  description: 'Early-stage startup investment firm focused on helping founders with positioning and communications strategy.',
-  keywords: ['venture capital', 'startup investment', 'positioning', 'communications strategy'],
+  title: {
+    default: 'Position Ventures - Early Stage Venture Capital Fund',
+    template: '%s | Position Ventures'
+  },
+  description: 'Position Ventures is an early-stage venture capital fund investing in founders who are building the future. Led by Jenny He, we partner with exceptional entrepreneurs.',
+  keywords: ['venture capital', 'startup investment', 'early stage', 'Position Ventures', 'Jenny He', 'VC fund'],
   authors: [{ name: 'Position Ventures' }],
-  viewport: 'width=device-width, initial-scale=1',
+  creator: 'Position Ventures',
+  publisher: 'Position Ventures',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL('https://positionventures.com'),
+  alternates: {
+    canonical: '/',
+  },
 }
 
 export default function RootLayout({
@@ -16,6 +29,39 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Position Ventures",
+              "url": "https://positionventures.com",
+              "logo": "https://positionventures.com/logo.png",
+              "description": "Position Ventures is an early-stage venture capital fund investing in founders who are building the future.",
+              "founder": {
+                "@type": "Person",
+                "name": "Jenny He",
+                "jobTitle": "Founder & General Partner",
+                "url": "https://www.linkedin.com/in/jennyhe/",
+                "sameAs": [
+                  "https://www.linkedin.com/in/jennyhe/",
+                  "https://twitter.com/jennydhe"
+                ]
+              },
+              "sameAs": [
+                "https://www.linkedin.com/company/position-ventures",
+                "https://twitter.com/jennydhe"
+              ],
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "business"
+              }
+            })
+          }}
+        />
+      </head>
       <body>{children}</body>
     </html>
   )
