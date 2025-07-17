@@ -414,6 +414,166 @@ export default function Jobs() {
       applyUrl: 'https://jobs.ashbyhq.com/anrok'
     },
 
+    // WorkWhile jobs
+    {
+      id: 'workwhile-frontend',
+      title: 'Frontend Engineer',
+      company: 'WorkWhile',
+      companyUrl: 'https://www.workwhilejobs.com/',
+      department: 'Engineering',
+      location: 'Remote',
+      type: 'Full-time',
+      description: 'Build responsive web applications using React, TypeScript, Styled Components, React Native, and Expo.',
+      applyUrl: 'https://workwhile.notion.site/WorkWhile-Open-Positions-b6461923c2c445fb8921495951b933f8'
+    },
+    {
+      id: 'workwhile-backend',
+      title: 'Backend Engineer',
+      company: 'WorkWhile',
+      companyUrl: 'https://www.workwhilejobs.com/',
+      department: 'Engineering',
+      location: 'Remote',
+      type: 'Full-time',
+      description: 'Develop scalable backend systems using Python, PostgreSQL, Flask, Redis, and Google Cloud Platform.',
+      applyUrl: 'https://workwhile.notion.site/WorkWhile-Open-Positions-b6461923c2c445fb8921495951b933f8'
+    },
+    {
+      id: 'workwhile-fullstack',
+      title: 'Full Stack Engineer',
+      company: 'WorkWhile',
+      companyUrl: 'https://www.workwhilejobs.com/',
+      department: 'Engineering',
+      location: 'Remote',
+      type: 'Full-time',
+      description: 'Work across the stack with React, TypeScript, Python, and PostgreSQL to build AI-powered labor platform.',
+      applyUrl: 'https://workwhile.notion.site/WorkWhile-Open-Positions-b6461923c2c445fb8921495951b933f8'
+    },
+    {
+      id: 'workwhile-data-science',
+      title: 'Data Science Engineer',
+      company: 'WorkWhile',
+      companyUrl: 'https://www.workwhilejobs.com/',
+      department: 'Data Science',
+      location: 'Remote',
+      type: 'Full-time',
+      description: 'Build ML models and data pipelines using Python, PostgreSQL, BigQuery, Scikit-learn, TensorFlow, and Dagster.',
+      applyUrl: 'https://workwhile.notion.site/WorkWhile-Open-Positions-b6461923c2c445fb8921495951b933f8'
+    },
+
+    // Twelve Labs jobs
+    {
+      id: 'twelve-labs-ml-research',
+      title: 'ML Research Engineer',
+      company: 'Twelve Labs',
+      companyUrl: 'https://twelvelabs.io/',
+      department: 'Research',
+      location: 'San Francisco, CA',
+      type: 'Full-time',
+      description: 'Research and develop video embedding, retrieval, and multimodal language modeling for AI video understanding.',
+      applyUrl: 'https://twelvelabs.io/careers'
+    },
+    {
+      id: 'twelve-labs-infrastructure',
+      title: 'Software Engineer, Infrastructure (On-premise)',
+      company: 'Twelve Labs',
+      companyUrl: 'https://twelvelabs.io/',
+      department: 'Engineering',
+      location: 'San Francisco, CA',
+      type: 'Full-time',
+      description: 'Design and maintain on-premise solutions for video AI infrastructure.',
+      applyUrl: 'https://twelvelabs.io/careers'
+    },
+    {
+      id: 'twelve-labs-solutions',
+      title: 'Solutions Architect',
+      company: 'Twelve Labs',
+      companyUrl: 'https://twelvelabs.io/',
+      department: 'Solutions',
+      location: 'San Francisco, CA',
+      type: 'Full-time',
+      description: 'Work with customers on video and AI integration for multimodal understanding.',
+      applyUrl: 'https://twelvelabs.io/careers'
+    },
+    {
+      id: 'twelve-labs-counsel',
+      title: 'Head of Commercial Counsel',
+      company: 'Twelve Labs',
+      companyUrl: 'https://twelvelabs.io/',
+      department: 'Legal',
+      location: 'San Francisco, CA',
+      type: 'Full-time',
+      description: 'Lead commercial legal initiatives for AI video understanding platform.',
+      applyUrl: 'https://twelvelabs.io/careers'
+    },
+
+    // Persona AI jobs
+    {
+      id: 'persona-ai-backend',
+      title: 'Backend Engineer',
+      company: 'Persona AI',
+      companyUrl: 'https://www.persona-ai.ai/',
+      department: 'Engineering',
+      location: 'Remote',
+      type: 'Full-time',
+      description: 'Build scalable backend systems for human-AI interaction platform.',
+      applyUrl: 'https://www.persona-ai.ai/'
+    },
+    {
+      id: 'persona-ai-data-scientist',
+      title: 'Data Scientist',
+      company: 'Persona AI',
+      companyUrl: 'https://www.persona-ai.ai/',
+      department: 'Data Science',
+      location: 'Remote',
+      type: 'Full-time',
+      description: 'Analyze user interaction data to improve AI persona experiences.',
+      applyUrl: 'https://www.persona-ai.ai/'
+    },
+    {
+      id: 'persona-ai-frontend',
+      title: 'Frontend Engineer',
+      company: 'Persona AI',
+      companyUrl: 'https://www.persona-ai.ai/',
+      department: 'Engineering',
+      location: 'Remote',
+      type: 'Full-time',
+      description: 'Create intuitive user interfaces for AI persona interactions.',
+      applyUrl: 'https://www.persona-ai.ai/'
+    },
+    {
+      id: 'persona-ai-ml',
+      title: 'Machine Learning Engineer',
+      company: 'Persona AI',
+      companyUrl: 'https://www.persona-ai.ai/',
+      department: 'Engineering',
+      location: 'Remote',
+      type: 'Full-time',
+      description: 'Develop and deploy ML models for human-AI interaction platform.',
+      applyUrl: 'https://www.persona-ai.ai/'
+    },
+    {
+      id: 'persona-ai-designer',
+      title: 'Product Designer',
+      company: 'Persona AI',
+      companyUrl: 'https://www.persona-ai.ai/',
+      department: 'Design',
+      location: 'Remote',
+      type: 'Full-time',
+      description: 'Design user experiences for AI persona interactions and interfaces.',
+      applyUrl: 'https://www.persona-ai.ai/'
+    },
+    {
+      id: 'persona-ai-pm',
+      title: 'Product Manager',
+      company: 'Persona AI',
+      companyUrl: 'https://www.persona-ai.ai/',
+      department: 'Product',
+      location: 'Remote',
+      type: 'Full-time',
+      description: 'Lead product strategy and roadmap for human-AI interaction platform.',
+      applyUrl: 'https://www.persona-ai.ai/'
+    },
+
     // Savvy Wealth jobs
     {
       id: 'savvy-cio',
@@ -531,7 +691,19 @@ export default function Jobs() {
     { name: 'Collective', url: 'https://www.collective.com/careers' },
     { name: 'Bloom', url: 'https://www.linkedin.com/company/bloominvest/jobs/' },
     { name: 'Stadium Live', url: 'https://www.linkedin.com/company/stadiumlive/jobs/' },
-    { name: 'Oyster', url: 'https://www.withoyster.com/careers' },
+    { name: 'Oyster', url: 'https://www.oysterhr.com/careers' },
+    { name: 'Cartesia', url: 'https://cartesia.ai/' },
+    { name: 'Super', url: 'https://jobs.lever.co/super-com' },
+    { name: 'Lantern', url: 'mailto:hiring@newlantern.ai' },
+    { name: 'Nova AI', url: 'mailto:contact@novasoftware.ai' },
+    { name: 'Town', url: 'https://town.com/' },
+    { name: 'Accordance', url: 'https://accordance.com/careers' },
+    { name: 'Skyfall', url: 'https://skyfall.ai/' },
+    { name: 'Lavender', url: 'https://wellfound.com/company/lavenderhq' },
+    { name: 'Swiftlane', url: 'mailto:contact@swiftlane.com' },
+    { name: 'Jadu', url: 'https://jadu.ar/jobs' },
+    { name: 'Olaclick', url: 'https://olaclick.com/' },
+    { name: 'Paramark', url: 'https://paramark.com/careers' },
   ]
   
   const totalCompaniesHiring = totalCompaniesWithListings + additionalHiringCompanies.length
@@ -591,10 +763,10 @@ export default function Jobs() {
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="text-center">
               <h1 className="text-4xl md:text-6xl font-light text-gray-900 mb-6">
-                Portfolio Jobs
+                Portfolio Jobs<span className="text-position-red">.</span>
               </h1>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Join exceptional companies in our portfolio. We only invest in outstanding founders and teams — now you can work with them.
+                We back high-signal startups before the rest of the world sees them. Now you can, too. Explore roles at exceptional companies in our portfolio — led by founders we&apos;d back again and again.
               </p>
               <div className="mt-8 text-sm text-gray-500" role="status" aria-live="polite">
                 <span className="bg-gray-100 px-3 py-1 rounded-full">{totalOpenPositions} open positions</span>

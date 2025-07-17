@@ -52,7 +52,7 @@ export default function Companies() {
     },
     {
       name: "Twelve Labs",
-      logo: "https://cdn.prod.website-files.com/65a58a670e9fc0f2a4c14901/6750d7146e21285ff100a578_Screenshot%202024-12-05%20at%206.20.05%E2%80%AFAM.png",
+      logo: "https://cdn.sanity.io/images/rn4tswnp/production/308e843dc2da1dc80ed5e1dffe41c3a8735bf7fa-3000x1414.jpg",
       textLogo: false,
       url: "https://twelvelabs.io/"
     },
@@ -234,7 +234,6 @@ export default function Companies() {
       name: "Persona AI",
       logo: "https://www.persona-ai.ai/static/media/logo.e688029ff3c740a7d19309fd7bbc5265.svg",
       textLogo: false,
-      invertOnHover: true,
       url: "https://www.persona-ai.ai/"
     }
   ]
@@ -272,13 +271,26 @@ export default function Companies() {
                     src={company.logo} 
                     alt={company.name}
                     className={`${
-                      company.name === 'Town' || company.name === 'Persona AI'
+                      company.name === 'Town'
+                        ? 'w-28 h-20'
+                        : company.name === 'Propel Code'
+                        ? 'w-36 h-28'
+                        : company.name === 'Persona AI'
                         ? 'w-32 h-24' 
                         : company.name === 'Cartesia'
                         ? 'w-36 h-28'
-                        : 'w-44 h-36'
+                        : company.name === 'Callie'
+                        ? 'w-48 h-40'
+                        : company.name === 'WorkWhile' || company.name === 'Fractal' || company.name === 'Paramark' || 
+                          company.name === 'Bloom' || company.name === 'Regrello' || company.name === 'Pine' || 
+                          company.name === 'Zuma' || company.name === 'Swiftlane' || company.name === 'Agora' || 
+                          company.name === 'Skyfall'
+                        ? 'w-52 h-44'
+                        : 'w-48 h-40'
                     } object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300 mix-blend-multiply ${
                       company.invertOnHover ? 'invert group-hover:invert-0' : ''
+                    } ${
+                      company.name === 'Persona AI' ? 'invert' : ''
                     }`}
                   />
                 )}

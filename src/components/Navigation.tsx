@@ -67,16 +67,6 @@ export default function Navigation() {
               >
                 Companies
               </Link>
-              <Link 
-                href="/jobs" 
-                className={`text-sm font-normal transition-colors ${
-                  pathname === '/jobs' 
-                    ? 'text-position-red' 
-                    : 'text-gray-500 hover:text-position-red'
-                }`}
-              >
-                Jobs
-              </Link>
             </div>
           </div>
           
@@ -146,16 +136,6 @@ export default function Navigation() {
               }`}
             >
               Companies
-            </Link>
-            <Link 
-              href="/jobs" 
-              className={`block text-sm font-normal transition-colors ${
-                pathname === '/jobs' 
-                  ? 'text-position-red' 
-                  : 'text-gray-500 hover:text-gray-900'
-              }`}
-            >
-              Jobs
             </Link>
           </div>
         </div>

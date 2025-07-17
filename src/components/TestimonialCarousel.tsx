@@ -15,6 +15,12 @@ export default function TestimonialCarousel() {
       company: "Twitch"
     },
     {
+      quote: "Jenny is the rare investor who doesn't just advise—she jumps in and leads. A week before going live, we reached out for advice. The next morning, she was in the office, working alongside the team—positioning us for an incredible launch.",
+      founder: "Brendan Iribe",
+      role: "Co-Founder & CEO",
+      company: "Oculus and Sesame"
+    },
+    {
       quote: "Jenny has been a gem of an investor. She is always willing to step in when it comes to her area of expertise and is super thoughtful and responsive.",
       founder: "Hussein Fazal",
       role: "Co-Founder & CEO",
@@ -39,12 +45,6 @@ export default function TestimonialCarousel() {
       company: "WorkWhile"
     },
     {
-      quote: "Jenny was an early believer in us and we're thrilled to have brought her on board as an investor. Jenny has been one of the most uniquely value add investors for us.",
-      founder: "Sam Yang",
-      role: "Co-Founder",
-      company: "Nova AI"
-    },
-    {
       quote: "Jenny is one of the highest value investors on our cap table. She is thoughtful, decisive, and a true partner to our business.",
       founder: "David Au-Yeung",
       role: "Co-Founder",
@@ -55,6 +55,30 @@ export default function TestimonialCarousel() {
       founder: "Michelle Valentine",
       role: "CO-FOUNDER & CEO",
       company: "Anrok"
+    },
+    {
+      quote: "Jenny has been our biggest champion, confidant, and advisor. Any founder would be incredibly lucky to have her in their corner. Without a doubt Jenny has been instrumental in getting Pine to where it is today and we could not be more fortunate to have crossed paths.",
+      founder: "Justin Herlick",
+      role: "Co-Founder & CEO",
+      company: "Pine"
+    },
+    {
+      quote: "Jenny has been my go-to confidant for all things PR and communications since the early days of EvenUp. From strategic advice to hands-on support—she's been a trusted partner every step of the way.",
+      founder: "Rami Karabibar",
+      role: "CEO & Co-founder",
+      company: "EvenUp"
+    },
+    {
+      quote: "Jenny is the kind of investor every founder wants: clear, decisive, supportive, and always a text away. She's helped us shape strategy, amplify reach, and get the right attention at the right moments.",
+      founder: "Charlie Feng",
+      role: "Co-Founder",
+      company: "Clearco and Agora"
+    },
+    {
+      quote: "We are grateful and lucky to have Jenny on our cap table. We found Jenny through a positive founder referral, and now she is the only investor I lean on for expert advice when it comes to PR, marketing, and meeting the right people.",
+      founder: "Shiva Suri",
+      role: "Founder & CEO",
+      company: "New Lantern"
     }
   ]
 
@@ -62,7 +86,7 @@ export default function TestimonialCarousel() {
     if (!isHovered) {
       const interval = setInterval(() => {
         goToNext()
-      }, 4000)
+      }, 5000)
       return () => clearInterval(interval)
     }
   }, [isHovered, currentIndex])
@@ -119,11 +143,12 @@ export default function TestimonialCarousel() {
               {testimonials[currentIndex].quote}
             </p>
             
-            <p className={`text-gray-500 text-xs font-light tracking-widest uppercase transition-opacity duration-300 ease-in-out ${
+            <div className={`text-gray-500 text-xs font-light tracking-widest uppercase transition-opacity duration-300 ease-in-out ${
               isTransitioning ? 'opacity-0' : 'opacity-100'
             }`}>
-              {testimonials[currentIndex].founder} — {testimonials[currentIndex].role} — {testimonials[currentIndex].company}
-            </p>
+              <p className="mb-1">{testimonials[currentIndex].founder}</p>
+              <p>{testimonials[currentIndex].role} — {testimonials[currentIndex].company}</p>
+            </div>
           </div>
 
           <button
