@@ -120,14 +120,14 @@ export default function TestimonialCarousel() {
   return (
     <div className="w-full">
         <div 
-          className="relative h-56 flex flex-col mb-4"
+          className="relative min-h-[280px] md:h-56 flex flex-col mb-4"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
           {/* Navigation arrows */}
           <button
             onClick={goToPrevious}
-            className="absolute -left-8 top-1/2 -translate-y-1/2 p-1 text-gray-400 hover:text-position-red transition-colors z-10"
+            className="hidden md:block absolute md:-left-4 lg:-left-8 top-1/2 -translate-y-1/2 p-1 text-gray-400 hover:text-position-red transition-colors z-10"
             aria-label="Previous testimonial"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -136,8 +136,8 @@ export default function TestimonialCarousel() {
           </button>
 
           {/* Testimonial content */}
-          <div className="w-full px-12 flex-1 flex flex-col justify-center">
-            <p className={`text-lg font-light text-gray-900 leading-relaxed mb-4 transition-opacity duration-300 ease-in-out ${
+          <div className="w-full px-8 md:px-12 flex-1 flex flex-col justify-center py-4 md:py-0">
+            <p className={`text-sm md:text-lg font-light text-gray-900 leading-relaxed mb-4 transition-opacity duration-300 ease-in-out ${
               isTransitioning ? 'opacity-0' : 'opacity-100'
             }`}>
               {testimonials[currentIndex].quote}
@@ -153,7 +153,7 @@ export default function TestimonialCarousel() {
 
           <button
             onClick={goToNext}
-            className="absolute -right-8 top-1/2 -translate-y-1/2 p-1 text-gray-400 hover:text-position-red transition-colors z-10"
+            className="hidden md:block absolute md:-right-4 lg:-right-8 top-1/2 -translate-y-1/2 p-1 text-gray-400 hover:text-position-red transition-colors z-10"
             aria-label="Next testimonial"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -163,7 +163,7 @@ export default function TestimonialCarousel() {
         </div>
 
         {/* Indicator dots - fixed position */}
-        <div className="flex justify-start space-x-1 px-12">
+        <div className="flex justify-start space-x-1 px-8 md:px-12">
           {testimonials.map((_, index) => (
             <button
               key={index}
