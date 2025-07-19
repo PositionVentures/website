@@ -89,7 +89,7 @@ export default function TestimonialCarousel() {
     if (!isHovered) {
       const interval = setInterval(() => {
         goToNext()
-      }, 5000)
+      }, 6000)
       return () => clearInterval(interval)
     }
   }, [isHovered, currentIndex])
