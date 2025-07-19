@@ -11,7 +11,7 @@ export default function Hero() {
         </h1>
         <div className="max-w-4xl mx-auto">
           <p className="text-lg md:text-xl text-gray-600 font-light leading-relaxed mb-8">
-            In today's crowded market, it's never been harder to stand out. 
+            In today&apos;s crowded market, it&apos;s never been harder to stand out. 
             Position Ventures invests in early stage startups and positions 
             them for success by helping founders nail their positioning and 
             communications strategy. We help you tell your story so you can 

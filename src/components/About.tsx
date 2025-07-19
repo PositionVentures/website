@@ -29,7 +29,7 @@ export default function About() {
             <div>
               <h3 className="text-xs font-medium text-gray-900 mb-4 tracking-widest uppercase">PR Strategy</h3>
               <p className="text-gray-400 text-sm font-light leading-relaxed">
-                Build media relationships and amplify your company's story
+                Build media relationships and amplify your company&apos;s story
               </p>
             </div>
           </div>

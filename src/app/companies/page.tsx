@@ -3,6 +3,14 @@ import Link from 'next/link'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 
+interface PortfolioCompany {
+  name: string
+  logo: string
+  textLogo: boolean
+  url: string
+  invertOnHover?: boolean
+}
+
 export const metadata: Metadata = {
   title: 'Portfolio Companies - Position Ventures',
   description: 'Explore Position Ventures portfolio of innovative startups including Sesame, Twelve Labs, Anrok, Cartesia, Nova AI, and more. We invest in exceptional founders building the future across AI, fintech, and enterprise software.',
@@ -43,7 +51,7 @@ export const metadata: Metadata = {
 }
 
 export default function Companies() {
-  const portfolioCompanies = [
+  const portfolioCompanies: PortfolioCompany[] = [
     {
       name: "Sesame",
       logo: "https://cdn.prod.website-files.com/65a58a670e9fc0f2a4c14901/67c6435fae4e753d43e35af8_Screenshot%202025-03-04%20at%208.03.20%E2%80%AFAM.png",
