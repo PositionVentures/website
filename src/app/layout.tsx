@@ -3,11 +3,11 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: {
-    default: 'Position Ventures - Early Stage Venture Capital Fund',
+    default: 'Position Ventures - Early Stage Venture Capital Fund | Your Story is Your Strategy',
     template: '%s | Position Ventures'
   },
-  description: 'Position Ventures is an early-stage venture capital fund investing in founders who are building the future. Led by Jenny He, we partner with exceptional entrepreneurs.',
-  keywords: ['venture capital', 'startup investment', 'early stage', 'Position Ventures', 'Jenny He', 'VC fund'],
+  description: 'Position Ventures is an early-stage venture capital fund investing in exceptional founders building the future. Led by Jenny He, we help founders tell their stories and position themselves for success.',
+  keywords: ['venture capital', 'startup investment', 'early stage VC', 'Position Ventures', 'Jenny He', 'seed funding', 'pre-seed investment', 'startup funding', 'venture fund', 'startup accelerator'],
   authors: [{ name: 'Position Ventures' }],
   creator: 'Position Ventures',
   publisher: 'Position Ventures',
@@ -19,6 +19,17 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://positionventures.com'),
   alternates: {
     canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   icons: {
     icon: [
@@ -45,9 +56,12 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "Position Ventures",
+              "alternateName": "Position VC",
               "url": "https://positionventures.com",
               "logo": "https://positionventures.com/logo.png",
-              "description": "Position Ventures is an early-stage venture capital fund investing in founders who are building the future.",
+              "description": "Early-stage venture capital fund investing in exceptional founders. We help startups tell their stories and position themselves for success.",
+              "slogan": "Your story is your strategy",
+              "foundingDate": "2023",
               "founder": {
                 "@type": "Person",
                 "name": "Jenny He",
@@ -58,13 +72,26 @@ export default function RootLayout({
                   "https://twitter.com/jennydhe"
                 ]
               },
+              "areaServed": {
+                "@type": "Country",
+                "name": "United States"
+              },
+              "knowsAbout": [
+                "Venture Capital",
+                "Startup Investment",
+                "Early Stage Funding",
+                "B2B SaaS",
+                "Fintech",
+                "Enterprise Technology",
+                "AI Startups"
+              ],
               "sameAs": [
                 "https://www.linkedin.com/company/position-ventures",
                 "https://twitter.com/jennydhe"
               ],
               "contactPoint": {
                 "@type": "ContactPoint",
-                "contactType": "business"
+                "contactType": "investor relations"
               }
             })
           }}

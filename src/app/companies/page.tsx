@@ -246,9 +246,33 @@ export default function Companies() {
     }
   ]
 
+  // Generate structured data for portfolio
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Position Ventures Portfolio Companies",
+    "description": "Our portfolio of innovative startups across AI, fintech, and enterprise software",
+    "url": "https://positionventures.com/companies",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Position Ventures",
+      "url": "https://positionventures.com"
+    },
+    "hasPart": portfolioCompanies.map(company => ({
+      "@type": "Organization",
+      "name": company.name,
+      "url": company.url
+    }))
+  }
+
   return (
-    <div className="min-h-screen bg-white">
-      <Navigation />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      <div className="min-h-screen bg-white">
+        <Navigation />
 
       {/* Companies Logo Grid */}
       <div className="pt-32 pb-20">
@@ -310,5 +334,6 @@ export default function Companies() {
 
       <Footer />
     </div>
+    </>
   )
 }
