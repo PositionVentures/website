@@ -8,6 +8,7 @@ export default function TestimonialCarousel() {
   const [isTransitioning, setIsTransitioning] = useState(false)
   const [touchStart, setTouchStart] = useState<number | null>(null)
   const [touchEnd, setTouchEnd] = useState<number | null>(null)
+  const [isInView, setIsInView] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
 
   const testimonials = [
@@ -86,15 +87,34 @@ export default function TestimonialCarousel() {
   ]
 
   useEffect(() => {
-    if (!isHovered) {
-      // Justin Kan's quote (index 0) gets 10 seconds, others get 6 seconds
-      const duration = currentIndex === 0 ? 10000 : 6000
+    if (!isHovered && isInView) {
       const interval = setInterval(() => {
         goToNext()
-      }, duration)
+      }, 6000)
       return () => clearInterval(interval)
     }
-  }, [isHovered, currentIndex])
+  }, [isHovered, currentIndex, isInView])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting)
+      },
+      {
+        threshold: 0.5, // Start when 50% of the component is visible
+      }
+    )
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current)
+    }
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current)
+      }
+    }
+  }, [])
 
   const transitionToSlide = (newIndex: number) => {
     setIsTransitioning(true)
