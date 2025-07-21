@@ -87,9 +87,11 @@ export default function TestimonialCarousel() {
 
   useEffect(() => {
     if (!isHovered) {
+      // Justin Kan's quote (index 0) gets 10 seconds, others get 6 seconds
+      const duration = currentIndex === 0 ? 10000 : 6000
       const interval = setInterval(() => {
         goToNext()
-      }, 6000)
+      }, duration)
       return () => clearInterval(interval)
     }
   }, [isHovered, currentIndex])
