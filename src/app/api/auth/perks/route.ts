@@ -80,8 +80,8 @@ export async function POST(request: Request) {
 }
 
 // Clean up old attempts periodically (every hour)
-if (typeof global !== 'undefined' && !global.cleanupInterval) {
-  global.cleanupInterval = setInterval(() => {
+if (typeof global !== 'undefined' && !(global as any).cleanupInterval) {
+  (global as any).cleanupInterval = setInterval(() => {
     const now = Date.now()
     for (const [ip, data] of attempts.entries()) {
       if (now - data.lastAttempt > 3600000) { // 1 hour
