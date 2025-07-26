@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
-import Link from 'next/link'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
+import JobsContent from './JobsContent'
 
 export const metadata: Metadata = {
   title: '41+ Open Jobs at Position Ventures Portfolio Companies | Tech Startup Careers',
@@ -665,56 +665,13 @@ export default function Jobs() {
     }
   ]
 
-  const companies = Array.from(new Set(jobs.map(job => job.company))).map(companyName => {
-    const companyJobs = jobs.filter(job => job.company === companyName)
-    return {
-      name: companyName,
-      url: companyJobs[0].companyUrl,
-      jobCount: companyJobs.length,
-      jobs: companyJobs
-    }
-  })
-
-  const departments = Array.from(new Set(jobs.map(job => job.department)))
-  const locations = Array.from(new Set(jobs.map(job => job.location)))
-  
-  // Calculate totals dynamically
-  const totalOpenPositions = jobs.length
-  const totalCompaniesWithListings = companies.length
-  
-  // Additional companies that are hiring (external job boards)
-  const additionalHiringCompanies = [
-    { name: 'Propel Code', url: 'https://jobs.gem.com/propel' },
-    { name: 'Regrello', url: 'https://jobs.lever.co/regrello' },
-    { name: 'Zuma', url: 'https://jobs.lever.co/getzuma' },
-    { name: 'Agora', url: 'https://jobs.ashbyhq.com/Agora' },
-    { name: 'Collective', url: 'https://www.collective.com/careers' },
-    { name: 'Bloom', url: 'https://www.linkedin.com/company/bloominvest/jobs/' },
-    { name: 'Stadium Live', url: 'https://www.linkedin.com/company/stadiumlive/jobs/' },
-    { name: 'Oyster', url: 'https://www.oysterhr.com/careers' },
-    { name: 'Cartesia', url: 'https://cartesia.ai/' },
-    { name: 'Super', url: 'https://jobs.lever.co/super-com' },
-    { name: 'Lantern', url: 'mailto:hiring@newlantern.ai' },
-    { name: 'Nova AI', url: 'mailto:contact@novasoftware.ai' },
-    { name: 'Town', url: 'https://town.com/' },
-    { name: 'Accordance', url: 'https://accordance.com/careers' },
-    { name: 'Skyfall', url: 'https://skyfall.ai/' },
-    { name: 'Lavender', url: 'https://wellfound.com/company/lavenderhq' },
-    { name: 'Swiftlane', url: 'mailto:contact@swiftlane.com' },
-    { name: 'Jadu', url: 'https://jadu.ar/jobs' },
-    { name: 'Olaclick', url: 'https://olaclick.com/' },
-    { name: 'Paramark', url: 'https://paramark.com/careers' },
-  ]
-  
-  const totalCompaniesHiring = totalCompaniesWithListings + additionalHiringCompanies.length
-
   // Generate JSON-LD structured data for job postings
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "ItemList",
     "name": "Position Ventures Portfolio Company Jobs",
     "description": "Job openings at Position Ventures portfolio companies",
-    "numberOfItems": totalOpenPositions,
+    "numberOfItems": jobs.length,
     "itemListElement": jobs.map((job, index) => ({
       "@type": "ListItem",
       "position": index + 1,
@@ -757,146 +714,7 @@ export default function Jobs() {
       />
       <div className="min-h-screen bg-white">
         <Navigation />
-
-        {/* Header */}
-        <header className="pt-32 pb-16">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="text-center">
-              <h1 className="text-4xl md:text-6xl font-light text-gray-900 mb-6">
-                Portfolio Jobs<span className="text-position-red">.</span>
-              </h1>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                We back high-signal startups before the rest of the world sees them. Now you can, too. Explore roles at exceptional companies in our portfolio — led by founders we&apos;d back again and again.
-              </p>
-              <div className="mt-8 text-sm text-gray-500" role="status" aria-live="polite">
-                <span className="bg-gray-100 px-3 py-1 rounded-full">{totalOpenPositions} open positions</span>
-                <span className="mx-2" aria-hidden="true">•</span>
-                <span className="bg-gray-100 px-3 py-1 rounded-full">{totalCompaniesHiring} companies hiring</span>
-              </div>
-            </div>
-          </div>
-        </header>
-
-        {/* Companies Overview */}
-        <section className="pb-16" aria-labelledby="companies-hiring">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <h2 id="companies-hiring" className="text-2xl font-medium text-gray-900 mb-8">Companies Hiring</h2>
-            
-            {/* Companies with listed positions */}
-            <div className="mb-8">
-              <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-4">With Open Positions Listed</h3>
-              <div className="flex flex-wrap gap-2">
-                {companies.map((company) => (
-                  <Link
-                    key={company.name}
-                    href={`#${company.name.toLowerCase().replace(/\s+/g, '-')}-jobs`}
-                    className="inline-flex items-center px-3 py-1.5 bg-gray-100 hover:bg-gray-200 rounded-full text-sm transition-colors"
-                  >
-                    <span className="font-medium text-gray-900">{company.name}</span>
-                    <span className="ml-2 text-xs bg-gray-900 text-white px-2 py-0.5 rounded-full">
-                      {company.jobCount}
-                    </span>
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            {/* Other hiring companies */}
-            <div>
-              <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-4">Also Hiring</h3>
-              <div className="flex flex-wrap gap-2">
-                {additionalHiringCompanies.map((company) => (
-                  <Link
-                    key={company.name}
-                    href={company.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center px-3 py-1.5 bg-gray-50 hover:bg-gray-100 rounded-full text-sm border border-gray-200 transition-colors"
-                  >
-                    <span className="text-gray-700">{company.name}</span>
-                    <svg className="ml-1.5 w-3 h-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Job Listings */}
-        <main className="pb-20" aria-labelledby="job-listings">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <h2 id="job-listings" className="text-2xl font-medium text-gray-900 mb-8">Open Positions</h2>
-            
-            {/* Group jobs by company */}
-            {companies.map((company) => (
-              <section key={company.name} id={`${company.name.toLowerCase().replace(/\s+/g, '-')}-jobs`} className="mb-12" aria-labelledby={`${company.name.toLowerCase().replace(/\s+/g, '-')}-heading`}>
-                <h3 id={`${company.name.toLowerCase().replace(/\s+/g, '-')}-heading`} className="text-lg font-medium text-gray-900 mb-4 pb-2 border-b border-gray-200">
-                  {company.name} ({company.jobCount} position{company.jobCount !== 1 ? 's' : ''})
-                </h3>
-                <div className="space-y-4" role="list" aria-label={`Job openings at ${company.name}`}>
-                  {company.jobs.map((job) => (
-                    <article key={job.id} className="bg-white border border-gray-200 rounded-lg p-6 hover:border-gray-300 transition-colors" role="listitem" itemScope itemType="https://schema.org/JobPosting">
-                      <div className="flex flex-col lg:flex-row lg:items-center justify-between">
-                        <div className="flex-1">
-                          <div className="flex items-center gap-4 mb-2">
-                            <h4 className="text-lg font-medium text-gray-900" itemProp="title">{job.title}</h4>
-                          </div>
-                          <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 mb-3">
-                            <span className="bg-gray-100 px-2 py-1 rounded" itemProp="department">{job.department}</span>
-                            <span itemProp="jobLocation">{job.location}</span>
-                            <span itemProp="employmentType">{job.type}</span>
-                            {job.salary && <span className="font-medium text-gray-900" itemProp="baseSalary">{job.salary}</span>}
-                          </div>
-                          <p className="text-gray-700" itemProp="description">{job.description}</p>
-                          <div className="sr-only">
-                            <span itemProp="hiringOrganization" itemScope itemType="https://schema.org/Organization">
-                              <span itemProp="name">{job.company}</span>
-                              <span itemProp="url">{job.companyUrl}</span>
-                            </span>
-                          </div>
-                        </div>
-                        <div className="mt-4 lg:mt-0 lg:ml-6">
-                          <Link
-                            href={job.applyUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors"
-                            itemProp="url"
-                            aria-label={`Apply for ${job.title} at ${job.company}`}
-                          >
-                            Apply Now
-                          </Link>
-                        </div>
-                      </div>
-                    </article>
-                  ))}
-                </div>
-              </section>
-            ))}
-          </div>
-        </main>
-
-        {/* CTA Section */}
-        <div className="bg-gray-50 py-16">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-            <h2 className="text-2xl font-medium text-gray-900 mb-4">
-              Don&apos;t see the right role?
-            </h2>
-            <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-              Our portfolio companies are always looking for exceptional talent. 
-              Check back regularly for new opportunities or reach out directly to companies that interest you.
-            </p>
-            <Link
-              href="/companies"
-              className="inline-flex items-center px-6 py-3 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors"
-            >
-              Explore Our Portfolio
-            </Link>
-          </div>
-        </div>
-
+        <JobsContent jobs={jobs} />
         <Footer />
       </div>
     </>
