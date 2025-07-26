@@ -95,9 +95,6 @@ export default function JobsContent({ jobs }: JobsContentProps) {
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               We back high-signal startups before the rest of the world sees them. Now you can, too. Explore roles at exceptional companies in our portfolio — led by founders we&apos;d back again and again.
             </p>
-            <div className="mt-8 text-sm text-gray-500" role="status" aria-live="polite">
-              {totalOpenPositions} open position{totalOpenPositions !== 1 ? 's' : ''} at {totalCompaniesWithListings} compan{totalCompaniesWithListings !== 1 ? 'ies' : 'y'}
-            </div>
           </div>
 
           {/* Search Bar */}
@@ -108,7 +105,7 @@ export default function JobsContent({ jobs }: JobsContentProps) {
                 placeholder="Search by role, company, location, or keyword..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-6 py-4 pl-12 text-gray-900 bg-white border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-position-red focus:border-transparent"
+                className="w-full px-6 py-4 pl-12 text-gray-900 bg-white border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-gray-400"
               />
               <svg
                 className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400"
@@ -139,7 +136,7 @@ export default function JobsContent({ jobs }: JobsContentProps) {
       </header>
 
       {/* Company Navigation */}
-      <section className="border-b border-gray-200 sticky top-24 bg-white z-40" aria-label="Company navigation">
+      <section className="sticky top-24 bg-white z-40" aria-label="Company navigation">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6">
           <div className="space-y-4">
             {/* Active hiring companies */}
@@ -168,7 +165,7 @@ export default function JobsContent({ jobs }: JobsContentProps) {
       <main className="pb-20" aria-labelledby="job-listings">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <h2 id="job-listings" className="text-2xl font-medium text-gray-900 mb-8">
-            {searchQuery ? `${totalOpenPositions} matching position${totalOpenPositions !== 1 ? 's' : ''}` : 'Open Positions'}
+            {searchQuery ? `${totalOpenPositions} matching position${totalOpenPositions !== 1 ? 's' : ''}` : `Open Positions (${totalOpenPositions})`}
           </h2>
           
           {filteredCompanies.length === 0 ? (
@@ -176,7 +173,7 @@ export default function JobsContent({ jobs }: JobsContentProps) {
               <p className="text-gray-500">No jobs found matching &quot;{searchQuery}&quot;</p>
               <button
                 onClick={() => setSearchQuery('')}
-                className="mt-4 text-position-red hover:underline"
+                className="mt-4 text-gray-600 hover:underline"
               >
                 Clear search
               </button>
@@ -236,7 +233,7 @@ export default function JobsContent({ jobs }: JobsContentProps) {
                               href={job.applyUrl}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="inline-flex items-center px-4 py-2 bg-position-red text-white text-sm font-medium rounded-md hover:bg-red-700 transition-colors"
+                              className="inline-flex items-center px-4 py-2 bg-gray-600 text-white text-sm font-medium rounded-md hover:bg-gray-700 transition-colors"
                             >
                               Apply
                               <svg className="ml-2 -mr-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

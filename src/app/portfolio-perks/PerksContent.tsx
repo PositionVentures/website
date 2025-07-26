@@ -78,7 +78,7 @@ export default function PerksContent({ perks }: PerksContentProps) {
       {/* Header */}
       <header className="pt-32 pb-12 bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <h1 className="text-4xl md:text-5xl font-light text-gray-900 mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Portfolio Perks
           </h1>
           <p className="text-xl text-gray-600">
@@ -208,40 +208,26 @@ export default function PerksContent({ perks }: PerksContentProps) {
                     return (
                       <tr key={perk.id} className="hover:bg-gray-50">
                         <td className="px-6 py-4">
-                          <div className="flex items-start">
-                            <div className="flex-shrink-0 h-10 w-10 bg-gray-100 rounded-lg flex items-center justify-center">
+                          <div className="flex items-center gap-4">
+                            <div className="flex-shrink-0 w-24 flex items-center justify-center">
                               {perk.logo ? (
-                                <img src={perk.logo} alt={perk.partner} className="h-8 w-8" />
+                                <img 
+                                  src={perk.logo} 
+                                  alt={perk.partner} 
+                                  className="max-h-8 max-w-full object-contain" 
+                                />
                               ) : (
                                 <span className="text-xs font-medium text-gray-600">
                                   {perk.partner.slice(0, 2).toUpperCase()}
                                 </span>
                               )}
                             </div>
-                            <div className="ml-4 flex-1">
-                              <div className="text-sm font-medium text-gray-900 flex items-center gap-2 mb-2">
+                            <div className="flex-1">
+                              <div className="text-base font-medium text-gray-900 mb-1">
                                 {perk.partner}
-                                <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800">
-                                  {perk.discount}
-                                </span>
                               </div>
-                              <div className="text-sm text-gray-500">
-                                {isExpanded ? perk.description : firstSentence}
-                                {hasMoreContent && (
-                                  <button
-                                    onClick={() => toggleExpanded(perk.id)}
-                                    className="ml-2 inline-flex items-center text-gray-400 hover:text-gray-600 transition-colors"
-                                  >
-                                    <svg 
-                                      className={`h-4 w-4 transition-transform ${isExpanded ? 'rotate-180' : ''}`} 
-                                      fill="none" 
-                                      stroke="currentColor" 
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                  </button>
-                                )}
+                              <div className="text-sm text-gray-600">
+                                {perk.discount}. {perk.description}
                               </div>
                             </div>
                           </div>
@@ -299,24 +285,6 @@ export default function PerksContent({ perks }: PerksContentProps) {
         </div>
       </main>
 
-      {/* CTA Section */}
-      <section className="bg-white py-16 border-t border-gray-200">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-          <h2 className="text-2xl font-medium text-gray-900 mb-4">
-            Want access to these perks?
-          </h2>
-          <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-            These exclusive deals are available to Position Ventures portfolio companies. 
-            Join our portfolio to unlock savings on the tools you need to build and scale.
-          </p>
-          <Link
-            href="/#contact"
-            className="inline-flex items-center px-6 py-3 bg-position-red text-white font-medium rounded-lg hover:bg-red-700 transition-colors"
-          >
-            Get in Touch
-          </Link>
-        </div>
-      </section>
     </>
   )
 }

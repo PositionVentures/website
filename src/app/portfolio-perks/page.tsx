@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
-import PerksContent from './PerksContent'
+import PerksPageWrapper from './PerksPageWrapper'
 
 export const metadata: Metadata = {
   title: 'Portfolio Perks | Position Ventures - Exclusive Deals for Startups',
@@ -59,6 +59,7 @@ export default function PortfolioPerks() {
     {
       id: 'stripe',
       partner: 'Stripe',
+      logo: '/logos/perks/stripe.png',
       discount: 'Waived fees on $50k processing',
       description: '$1,500 in credits to offset fees for Stripe Payments, Connect, Billing, and more. Expert insights, guidance on integrations, exclusive events, and eligibility for custom pricing review.',
       category: 'Payments',
@@ -67,22 +68,16 @@ export default function PortfolioPerks() {
     {
       id: 'dropbox',
       partner: 'Dropbox',
+      logo: '/logos/perks/dropbox.svg',
       discount: 'AI-powered search & assistant',
       description: 'Search anything instantly across tools (Drive, Slack, Notion), auto-organized content stacks, and GPT-style AI assistant over your connected company content.',
       category: 'Productivity',
       link: 'https://capture.dropbox.com/pPEDPZ2QOsHexLBx'
     },
     {
-      id: 'jp-morgan',
-      partner: 'JP Morgan',
-      discount: 'Fees waived for 3 years',
-      description: 'Complete banking solution with account fees waived for 3 years, Money Market Deposit Account, CashFlow 360, Cap Table Management, Corporate Credit Card, and more.',
-      category: 'Banking',
-      link: 'https://drive.google.com/drive/folders/1KHrNNiaLw-w56WRivwhD2ugKZivQ7QAj?usp=sharing'
-    },
-    {
       id: 'notion',
       partner: 'Notion',
+      logo: '/logos/perks/notion.png',
       discount: 'Up to 6 months free Business Plan',
       description: 'Get up to 6 months free on the Business Plan with unlimited AI access. Total value up to $12,000 for all-in-one workspace and collaboration.',
       category: 'Productivity',
@@ -91,6 +86,7 @@ export default function PortfolioPerks() {
     {
       id: 'ramp',
       partner: 'Ramp',
+      logo: '/logos/perks/ramp.png',
       discount: '$500 referral bonus',
       description: 'Corporate card and expense management with $500 referral bonus for each client referred, expedited underwriting, white glove support, and dedicated Partner-Manager.',
       category: 'Finance',
@@ -99,6 +95,7 @@ export default function PortfolioPerks() {
     {
       id: 'zendesk',
       partner: 'Zendesk',
+      logo: '/logos/perks/zendesk.png',
       discount: '6 months free',
       description: 'Customer service software platform with ticketing, knowledge base, and customer support tools. Get 6 months free access to help scale your customer support operations.',
       category: 'Customer Support',
@@ -106,13 +103,5 @@ export default function PortfolioPerks() {
     }
   ]
 
-  return (
-    <>
-      <div className="min-h-screen bg-gray-50">
-        <Navigation />
-        <PerksContent perks={perks} />
-        <Footer />
-      </div>
-    </>
-  )
+  return <PerksPageWrapper perks={perks} />
 }

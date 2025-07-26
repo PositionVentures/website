@@ -11,19 +11,21 @@ export default function Footer() {
           <div className="flex items-center space-x-6">
             <a 
               href="/jobs" 
-              className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors duration-200"
+              className="text-gray-500 hover:text-position-red text-sm font-normal transition-colors duration-200"
             >
               Careers
             </a>
             <a 
               href="/portfolio-perks" 
-              className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors duration-200"
+              className="text-gray-500 hover:text-position-red text-sm font-normal transition-colors duration-200"
             >
               Portfolio Perks
             </a>
             <a 
-              href="#contact" 
-              className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors duration-200"
+              href="https://airtable.com/shrM2nHbNLdjXImRZ" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-500 hover:text-position-red text-sm font-normal transition-colors duration-200"
             >
               Contact
             </a>
@@ -39,7 +41,7 @@ export default function Footer() {
               </svg>
             </a>
             <a 
-              href="https://x.com/positionvc" 
+              href="https://x.com/position_vc" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-gray-900 transition-colors duration-200"

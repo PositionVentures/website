@@ -183,6 +183,54 @@ export default function Jobs() {
       description: 'Lead product strategy and development for innovative healthcare hardware.',
       applyUrl: 'https://jobs.ashbyhq.com/sesame'
     },
+    {
+      id: 'sesame-research-3d',
+      title: 'Research Engineer — 3D Reconstruction and Rendering',
+      company: 'Sesame',
+      companyUrl: 'https://www.sesame.com/',
+      department: 'Vision',
+      location: 'San Francisco, CA',
+      type: 'Full-time',
+      salary: '$175K - $280K',
+      description: 'Work on cutting-edge 3D reconstruction and rendering technologies for healthcare applications.',
+      applyUrl: 'https://jobs.ashbyhq.com/sesame'
+    },
+    {
+      id: 'sesame-research-cv',
+      title: 'Research Engineer - Computer Vision ML',
+      company: 'Sesame',
+      companyUrl: 'https://www.sesame.com/',
+      department: 'Vision',
+      location: 'San Francisco, CA',
+      type: 'Full-time',
+      salary: '$175K - $280K',
+      description: 'Develop computer vision and machine learning solutions for medical imaging applications.',
+      applyUrl: 'https://jobs.ashbyhq.com/sesame'
+    },
+    {
+      id: 'sesame-office-manager',
+      title: 'Office Manager & Executive Assistant',
+      company: 'Sesame',
+      companyUrl: 'https://www.sesame.com/',
+      department: 'Operations',
+      location: 'Bellevue, WA',
+      type: 'Full-time',
+      salary: '$175K - $280K',
+      description: 'Manage office operations and provide executive support for leadership team.',
+      applyUrl: 'https://jobs.ashbyhq.com/sesame'
+    },
+    {
+      id: 'sesame-product-designer',
+      title: 'Product Designer',
+      company: 'Sesame',
+      companyUrl: 'https://www.sesame.com/',
+      department: 'Product',
+      location: 'San Francisco, CA',
+      type: 'Full-time',
+      salary: '$175K - $280K',
+      description: 'Design intuitive and beautiful user experiences for healthcare technology products.',
+      applyUrl: 'https://jobs.ashbyhq.com/sesame'
+    },
 
     // Patlytics jobs
     {
