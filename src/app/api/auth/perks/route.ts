@@ -83,10 +83,14 @@ export async function POST(request: Request) {
 if (typeof global !== 'undefined' && !(global as any).cleanupInterval) {
   (global as any).cleanupInterval = setInterval(() => {
     const now = Date.now()
-    for (const [ip, data] of attempts.entries()) {
+    const ipsToDelete: string[] = []
+    
+    attempts.forEach((data, ip) => {
       if (now - data.lastAttempt > 3600000) { // 1 hour
-        attempts.delete(ip)
+        ipsToDelete.push(ip)
       }
-    }
+    })
+    
+    ipsToDelete.forEach(ip => attempts.delete(ip))
   }, 3600000)
 }
